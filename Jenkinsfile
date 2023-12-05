@@ -18,9 +18,16 @@ pipeline {
         stage('stage2') {
           steps {
             sh 'echo "1 of 2"'
+            sh '2 of 2'
           }
         }
 
+      }
+    }
+
+    stage('stage3') {
+      steps {
+        sh '1 of 3'
       }
     }
 
