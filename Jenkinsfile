@@ -16,6 +16,12 @@ pipeline {
         }
 
         stage('stage2') {
+          agent {
+            node {
+              label 'linexnode'
+            }
+
+          }
           steps {
             sh 'echo "1 of 2"'
             sh '2 of 2'
