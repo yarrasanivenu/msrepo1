@@ -26,8 +26,19 @@ pipeline {
     }
 
     stage('stage3') {
-      steps {
-        sh '1 of 3'
+      parallel {
+        stage('stage3') {
+          steps {
+            sh '1 of 3'
+          }
+        }
+
+        stage('stage4') {
+          steps {
+            sh '1 of 4'
+          }
+        }
+
       }
     }
 
