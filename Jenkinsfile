@@ -1,15 +1,15 @@
 pipeline {
-  agent {
-    node {
-      label 'linexnode'
-    }
-
-  }
+  agent any
   stages {
     stage('stage1') {
       parallel {
         stage('stage1') {
-          agent any
+          agent {
+            node {
+              label 'linexnode'
+            }
+
+          }
           steps {
             sh 'echo "1 of 1"'
             echo '2 of 1'
@@ -17,7 +17,12 @@ pipeline {
         }
 
         stage('stage2') {
-          agent any
+          agent {
+            node {
+              label 'linexnode'
+            }
+
+          }
           steps {
             sh 'echo "1 of 2"'
             sh '2 of 2'
